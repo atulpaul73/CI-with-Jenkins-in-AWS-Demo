@@ -4,7 +4,7 @@ pipeline {
 		
 		PROJECT_ID = 'My First Project'
                 CLUSTER_NAME = 'kube-demo'
-                LOCATION = 'australia-southeast1-c
+                LOCATION = 'australia-southeast1-c'
                 CREDENTIALS_ID = 'K8'
 	}
 	
