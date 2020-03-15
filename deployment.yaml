@@ -16,8 +16,8 @@ spec:
     app: mytestapp2
   spec:
    containers:
-   - name: mytestapp
-     image: atulpaul/devops:tagversion
+   - name: mytestapp2
+     image: "gcr.io/applied-dialect-259611/atulpaul/devops:tagversion
      ports:
      - containerPort: 8080
 
