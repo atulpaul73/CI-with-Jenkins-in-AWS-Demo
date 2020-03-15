@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: mytestapp
+ name: mytestapp1
  labels:
-  app: mytestapp
+  app: mytestapp1
 spec:
  replicas: 2
  selector:
   matchLabels:
-   app: mytestapp
+   app: mytestapp2
  template:
   metadata: 
    labels:
-    app: mytestapp
+    app: mytestapp2
   spec:
    containers:
    - name: mytestapp
-     image: atulpaul73/devops:tagversion
+     image: atulpaul/devops:tagversion
      ports:
      - containerPort: 8080
 
