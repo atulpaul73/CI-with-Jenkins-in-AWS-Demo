@@ -44,7 +44,30 @@ pipeline {
                    }
                 }
             }
-	   
+	stage('Test') { 
+			steps {
+		          echo "Testing..."
+			  sh 'mvn test'
+			}
+		   }
+		   stage('Build Docker Image') { 
+			steps {
+	                   script {
+			      myimage = docker.build("gcr.io/applied-dialect-259611/atulpaul73/devops1:${env.BUILD_ID}")
+	                   }
+	                }
+		   }
+		   stage("Push Docker Image") {
+	                steps {
+	                   script {
+	                      docker.withRegistry('https://gcr.io', 'gcr:gcrkey') {
+	                            myimage.push("${env.BUILD_ID}")		
+	                     }
+				   
+	                   }
+	                }
+	            }
+   
            stage('Deploy to K8s') { 
                 steps{
                    echo "Deployment started ..."
